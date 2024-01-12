@@ -1,0 +1,7 @@
+@inproceedings{REPO293,
+    author = "Wang, Haoyuan and Xu, Xiaogang and Xu, Ke and Lau, Rynson WH",
+    booktitle = "Proceedings of the IEEE/CVF International Conference on Computer Vision",
+    pages = "12632--12641",
+    title = "{Lighting up NeRF via Unsupervised Decomposition and Enhancement}",
+    year = "2023"
+}
