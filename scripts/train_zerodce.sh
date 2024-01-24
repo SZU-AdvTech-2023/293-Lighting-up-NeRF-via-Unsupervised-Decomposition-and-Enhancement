@@ -1,0 +1,56 @@
+#!/bin/bash
+
+# *** Please replace /path/to/dataset with your dataset path 
+# and replace scene_name with your scene name.
+
+# stage 1: decompositoin only, without enhancement.
+#python -m train \
+#--gin_configs=configs/llff_illunerf.gin \
+#--gin_bindings="Config.data_dir = './datasets/LOM_full/bike'" \
+#--gin_bindings="Config.checkpoint_dir = './nerf_results/llnerf/llnerf__bike_zerodce'" \
+#--gin_bindings="Config.factor = 1" \
+#--gin_bindings="Config.batch_size = 1024" \
+#--gin_bindings="Config.checkpoint_every = 25000" \
+#--gin_bindings="Config.valid_steps = [5000, 25000]" \
+#--gin_bindings="Config.max_steps = 100000" \
+#--gin_bindings="Config.rawnerf_mode = False" \
+#--gin_bindings="Model.learned_exposure_scaling = False" \
+#--gin_bindings="Model.name = 'llnerf'" \
+#--gin_bindings="Config.logfile = 'logs/llnerf__bike_zerodce.txt'" \
+#--gin_bindings="Config.data_loss_type = 'rawnerf'" \
+#--gin_bindings="NerfMLP.learn_zerodce = True" \
+#--gin_bindings="Config.exposure_loss_mult = 0.1" \
+#--logtostderr \
+#--gin_bindings="Config.sample_neighbor_num = 4" \
+#--gin_bindings="Config.beta_ltv_loss_mult = 0.1" \
+#--gin_bindings="Config.gray_variance_bias = 0.5" \
+#--gin_bindings="Config.gray_loss_mult = 0.1" \
+#--gin_bindings="Config.fixed_exposure = 0.6" \
+#--gin_bindings="Config.s3im_loss_mult = 0.0" \
+#--gin_bindings="Config.disable_enhancement_loss = True" \
+
+# stage 2: enhancement
+python -m train \
+--gin_configs=configs/llff_illunerf.gin \
+--gin_bindings="Config.data_dir = './datasets/LOM_full/bike'" \
+--gin_bindings="Config.checkpoint_dir = './nerf_results/llnerf/llnerf__bike_zerodce'" \
+--gin_bindings="Config.factor = 1" \
+--gin_bindings="Config.batch_size = 1024" \
+--gin_bindings="Config.checkpoint_every = 25000" \
+--gin_bindings="Config.valid_steps = [5000, 25000]" \
+--gin_bindings="Config.max_steps = 100000" \
+--gin_bindings="Config.rawnerf_mode = False" \
+--gin_bindings="Model.learned_exposure_scaling = False" \
+--gin_bindings="Model.name = 'llnerf'" \
+--gin_bindings="Config.logfile = 'logs/llnerf__bike_zerodce.txt'" \
+--gin_bindings="Config.data_loss_type = 'rawnerf'" \
+--gin_bindings="NerfMLP.learn_zerodce = True" \
+--gin_bindings="Config.exposure_loss_mult = 0.1" \
+--logtostderr \
+--gin_bindings="Config.sample_neighbor_num = 4" \
+--gin_bindings="Config.beta_ltv_loss_mult = 0.1" \
+--gin_bindings="Config.gray_variance_bias = 0.5" \
+--gin_bindings="Config.gray_loss_mult = 0.1" \
+--gin_bindings="Config.fixed_exposure = 0.6" \
+--gin_bindings="Config.s3im_loss_mult = 0.0" \
+--gin_bindings="Config.max_steps = 105000"

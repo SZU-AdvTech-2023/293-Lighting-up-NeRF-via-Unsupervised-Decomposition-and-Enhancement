@@ -1,0 +1,2 @@
+修改了models.py中的564行以及570
+即去掉density网络的pos_enc以及relu激活函数，改用小波激活函数
